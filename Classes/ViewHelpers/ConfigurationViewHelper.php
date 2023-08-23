@@ -30,7 +30,7 @@ class ConfigurationViewHelper extends AbstractViewHelper
     protected static function getLanguageIsoCode(): string
     {
         if ((new Typo3Version())->getMajorVersion() >= 12) {
-            return (string)$GLOBALS['TYPO3_REQUEST']->getAttribute('language')->getLocale();
+            return $GLOBALS['TYPO3_REQUEST']->getAttribute('language')->getLocale()->getLanguageCode();
         }
         return $GLOBALS['TYPO3_REQUEST']->getAttribute('language')->getTwoLetterIsoCode();
     }
