@@ -10,7 +10,7 @@ TYPO3:
             # For display in the backend: Register JS files/modules that are integrated via requireJS
             dynamicRequireJsModules:
               additionalViewModelModules:
-                1689150041921: 'TYPO3/CMS/Friendlycaptcha/Backend/FormEditor/FriendlycaptchaViewmodel'
+                1689150041921: 'TYPO3/CMS/FriendlycaptchaOfficial/Backend/FormEditor/FriendlycaptchaViewmodel'
 
             # For display in the backend: which fluid template to use?
             formEditorPartials:
