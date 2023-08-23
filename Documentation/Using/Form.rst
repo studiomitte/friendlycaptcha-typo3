@@ -17,4 +17,4 @@ in the section **Advanced Elements**.
 
     Field "Friendly Captcha"
 
-The automatically used template can be found at `EXT:friendlycaptcha/Resources/Private/Form/Partials/Friendlycaptcha.html`.
+The automatically used template can be found at `EXT:friendlycaptcha_official/Resources/Private/Form/Partials/Friendlycaptcha.html`.

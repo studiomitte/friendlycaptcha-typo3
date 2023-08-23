@@ -27,7 +27,7 @@ The puzzle needs to be integrated into the form. This can be done like this in y
                 <div class="frc-captcha" data-sitekey="{captchaConfiguration.siteKey}" data-lang="{captchaConfiguration.languageIsoCode}" data-puzzle-endpoint="{captchaConfiguration.puzzleUrl}"></div>
             </f:then>
             <f:else>
-                <p>{f:translate(key:'LLL:EXT:friendlycaptcha/Resources/Private/Language/locallang.xlf:configuration_missing')}</p>
+                <p>{f:translate(key:'LLL:EXT:friendlycaptcha_official/Resources/Private/Language/locallang.xlf:configuration_missing')}</p>
             </f:else>
         </f:if>
 
