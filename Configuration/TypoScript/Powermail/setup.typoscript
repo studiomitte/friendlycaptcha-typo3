@@ -1,0 +1,14 @@
+plugin.tx_powermail {
+    view {
+        partialRootPaths {
+            0 = EXT:powermail/Resources/Private/Partials/
+            10 = EXT:friendlycaptcha/Resources/Private/Powermail/Partials
+        }
+    }
+
+    settings.setup.validators {
+        1 {
+            class = StudioMitte\FriendlyCaptcha\FieldValidator\PowermailValidator
+        }
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" date="2023-07-13T10:24:37Z">
+        <body>
+            <trans-unit id="message.invalid">
+                <source>Captcha is invalid. Please try again</source>
+                <target>Das Captcha ist ungültig. Bitte versuchen Sie es noch einmal.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

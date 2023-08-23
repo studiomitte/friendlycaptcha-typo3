@@ -1,0 +1,79 @@
+TYPO3:
+  CMS:
+    Form:
+      prototypes:
+        standard:
+
+          # Setup Formelements in Backend:
+          formEditor:
+
+            # For display in the backend: Register JS files/modules that are integrated via requireJS
+            dynamicRequireJsModules:
+              additionalViewModelModules:
+                1689150041921: 'TYPO3/CMS/Friendlycaptcha/Backend/FormEditor/FriendlycaptchaViewmodel'
+            
+            # For display in the backend: which fluid template to use?
+            formEditorPartials:
+              FormElement-Friendlycaptcha: 'Stage/SimpleTemplate'
+
+          
+          formElementsDefinition:
+
+            # For frontend output: Additional paths needed for rendering the field
+            Form:
+              renderingOptions:
+                partialRootPaths:
+                  1689150041921: 'EXT:friendlycaptcha/Resources/Private/Form/Partials'
+
+            # Display of the form fields in the backend
+            # Form Field Detail view (in the right column)
+                  
+            Friendlycaptcha:
+              
+              implementationClassName: 'TYPO3\CMS\Form\Domain\Model\FormElements\GenericFormElement'
+
+              # Headline (appears as a title in the overview and above the form)
+              formEditor:
+                label: 'Friendly Captcha'
+                group: custom
+                groupSorting: 1010
+
+                iconIdentifier: 'Friendlycaptcha-icon'
+
+                propertyCollections:
+                  validators:
+                    10:
+                      identifier: 'Friendlycaptcha'
+                      editors:
+                        100:
+                          identifier: 'header'
+                          templateName: 'Inspector-CollectionElementHeaderEditor'
+                          label: 'Friendlycaptcha Validator'
+                
+                # Defaults for the form fields
+                predefinedDefaults:
+                  validators:
+                    -
+                      identifier: 'Friendlycaptcha'
+
+                editors:
+                  100:
+                    identifier: label
+                    templateName: Inspector-TextEditor
+                    label: formEditor.elements.FormElement.editor.label.label
+                    propertyPath: label
+                  900:
+                    identifier: 'validators'
+                    templateName: 'Inspector-ValidatorsEditor'
+                    label: 'formEditor.elements.TextMixin.editor.validators.label'
+                    selectOptions:
+                      10:
+                        value: 'Friendlycaptcha'
+          
+          # Define custom validator
+          validatorsDefinition:
+            Friendlycaptcha:
+              implementationClassName: 'StudioMitte\FriendlyCaptcha\FieldValidator\FormValidator'
+              formEditor:
+                iconIdentifier: 'form-validator'
+                label: 'Friendy Captcha Validator'

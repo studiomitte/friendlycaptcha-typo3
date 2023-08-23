@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" date="2020-01-21T11:57:29+01:00">
+        <body>
+            <trans-unit id="site.configuration.tab">
+                <source>Friendly Captcha</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.site_key">
+                <source>Site KEY</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.secret_key">
+                <source>Secret KEY</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.verify_url">
+                <source>Verify URL</source>
+            </trans-unit>
+			<trans-unit id="site.configuration.puzzle_url">
+                <source>Puzzle URL</source>
+            </trans-unit>
+			<trans-unit id="site.configuration.js_path">
+                <source>JavaScript Path</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

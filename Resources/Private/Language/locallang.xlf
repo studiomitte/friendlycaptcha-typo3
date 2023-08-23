@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" date="2023-07-13T10:24:37Z">
+        <header/>
+        <body>
+            <trans-unit id="message.invalid">
+                <source>Captcha is invalid. Please try again</source>
+            </trans-unit>
+			<trans-unit id="configuration_missing">
+				<source>The EXT:friendlycaptcha is not fully configured!</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

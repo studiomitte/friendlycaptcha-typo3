@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  StudioMitte\FriendlyCaptcha\:
+    resource: '../Classes/*'
+
+  StudioMitte\FriendlyCaptcha\Service\Api:
+    public: true
