@@ -11,25 +11,25 @@ TYPO3:
             dynamicRequireJsModules:
               additionalViewModelModules:
                 1689150041921: 'TYPO3/CMS/Friendlycaptcha/Backend/FormEditor/FriendlycaptchaViewmodel'
-            
+
             # For display in the backend: which fluid template to use?
             formEditorPartials:
               FormElement-Friendlycaptcha: 'Stage/SimpleTemplate'
 
-          
+
           formElementsDefinition:
 
             # For frontend output: Additional paths needed for rendering the field
             Form:
               renderingOptions:
                 partialRootPaths:
-                  1689150041921: 'EXT:friendlycaptcha/Resources/Private/Form/Partials'
+                  1689150041921: 'EXT:friendlycaptcha_official/Resources/Private/Form/Partials'
 
             # Display of the form fields in the backend
             # Form Field Detail view (in the right column)
-                  
+
             Friendlycaptcha:
-              
+
               implementationClassName: 'TYPO3\CMS\Form\Domain\Model\FormElements\GenericFormElement'
 
               # Headline (appears as a title in the overview and above the form)
@@ -49,7 +49,7 @@ TYPO3:
                           identifier: 'header'
                           templateName: 'Inspector-CollectionElementHeaderEditor'
                           label: 'Friendlycaptcha Validator'
-                
+
                 # Defaults for the form fields
                 predefinedDefaults:
                   validators:
@@ -69,7 +69,7 @@ TYPO3:
                     selectOptions:
                       10:
                         value: 'Friendlycaptcha'
-          
+
           # Define custom validator
           validatorsDefinition:
             Friendlycaptcha:

@@ -30,7 +30,7 @@ class ConfigurationViewHelperTest extends BaseTestCase
             'siteKey' => '1234',
             'verifyUrl' => 'https://verify,https://verify2',
             'puzzleUrl' => 'https://puzzle',
-            'jsPath' => 'EXT:friendlycaptcha/Resources/Public/JavaScript/lib/widget-0.9.12.min.js',
+            'jsPath' => 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/widget-0.9.12.min.js',
             'enabled' => true,
         ], ConfigurationViewHelper::renderStatic([], static fn () => '', $renderingContext));
     }

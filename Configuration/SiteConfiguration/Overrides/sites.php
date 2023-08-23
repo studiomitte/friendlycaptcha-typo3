@@ -2,7 +2,7 @@
 
 call_user_func(
     static function () {
-        $lll = 'LLL:EXT:friendlycaptcha/Resources/Private/Language/Configuration.xlf:';
+        $lll = 'LLL:EXT:friendlycaptcha_official/Resources/Private/Language/Configuration.xlf:';
         $GLOBALS['SiteConfiguration']['site']['columns']['friendlycaptcha_site_key'] = [
             'label' => $lll . 'site.configuration.site_key',
             'config' => [

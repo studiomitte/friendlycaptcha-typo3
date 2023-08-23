@@ -15,7 +15,7 @@ class FormValidator extends AbstractValidator
         $friendlyCaptchaService = GeneralUtility::makeInstance(Api::class);
         if (!$friendlyCaptchaService->verify()) {
             $this->addError(
-                $this->translateErrorMessage('message.invalid', 'friendlycaptcha'),
+                $this->translateErrorMessage('message.invalid', 'friendlycaptcha_official'),
                 1689236324
             );
         }

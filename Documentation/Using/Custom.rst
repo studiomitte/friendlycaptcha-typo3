@@ -44,7 +44,7 @@ The verification of the puzzle is done after the form has been submitted. Either
     // either pass the solution as 1st argument to verify() or let it be fetched from the request within the method
     if (!$friendlyCaptchaService->verify()) {
         $this->addError(
-            $this->translateErrorMessage('message.invalid', 'friendlycaptcha'),
+            $this->translateErrorMessage('message.invalid', 'friendlycaptcha_official'),
             1689236324
         );
     }
