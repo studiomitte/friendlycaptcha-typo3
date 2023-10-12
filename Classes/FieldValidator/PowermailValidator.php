@@ -6,34 +6,26 @@ namespace StudioMitte\FriendlyCaptcha\FieldValidator;
 
 use In2code\Powermail\Domain\Validator\AbstractValidator;
 use StudioMitte\FriendlyCaptcha\Service\Api;
-use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Error\Error;
-use TYPO3\CMS\Extbase\Error\Result;
 
 class PowermailValidator extends AbstractValidator
 {
     /**
      * @param Mail $mail
-     * @return Result
      */
-    public function validate($mail): Result
+    protected function isValid($mail): void
     {
-        $result = new Result();
         if (!$this->isFormWithCaptchaField($mail) || $this->isCaptchaCheckToSkip()) {
-            return $result;
+            return;
         }
 
         $friendlyCaptchaService = GeneralUtility::makeInstance(Api::class);
         if (!$friendlyCaptchaService->verify()) {
-            $result->addError(
-                new Error(
-                    $this->getLanguageService()->sL('LLL:EXT:friendlycaptcha_official/Resources/Private/Language/locallang.xlf:message.invalid'),
-                    1689157219
-                )
+            $this->addError(
+                $this->translateErrorMessage('message.invalid', 'friendlycaptcha_official'),
+                1689157219,
             );
         }
-        return $result;
     }
 
     protected function isFormWithCaptchaField($mail): bool
@@ -69,10 +61,5 @@ class PowermailValidator extends AbstractValidator
     {
         $pluginVariables = GeneralUtility::_GPmerged('tx_powermail_pi1');
         return $pluginVariables['action'];
-    }
-
-    private function getLanguageService(): LanguageService
-    {
-        return $GLOBALS['LANG'];
     }
 }
