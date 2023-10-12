@@ -4,8 +4,19 @@ plugin.tx_powermail {
       981818 = EXT:friendlycaptcha_official/Resources/Private/Powermail/Partials
     }
   }
+}
 
-  settings.setup.validators {
+[typo3.branch == "12.4"]
+  plugin.tx_powermail.settings.setup.validators {
+    981818 {
+      class = StudioMitte\FriendlyCaptcha\FieldValidator\PowermailV11Validator
+      config {
+
+      }
+    }
+  }
+[ELSE]
+  plugin.tx_powermail.settings.setup.validators {
     981818 {
       class = StudioMitte\FriendlyCaptcha\FieldValidator\PowermailValidator
       config {
@@ -13,4 +24,4 @@ plugin.tx_powermail {
       }
     }
   }
-}
+[END]
