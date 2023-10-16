@@ -32,6 +32,10 @@ class Api
 
     public function verify(string $solution = ''): bool
     {
+        if ($this->configuration->hasSkipDevValidation()) {
+            return true;
+        }
+
         $solution = $solution ?: $this->getSolutionFromRequest();
         if (!$solution || !$this->configuration->isEnabled()) {
             return false;

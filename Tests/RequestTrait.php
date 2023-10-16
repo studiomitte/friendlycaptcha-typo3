@@ -19,6 +19,7 @@ trait RequestTrait
             'friendlycaptcha_secret_key' => $secretKey,
             'friendlycaptcha_site_key' => $siteKey,
             'friendlycaptcha_verify_url' => 'https://verify,https://verify2',
+            'friendlycaptcha_skip_dev_validation' => false,
         ]);
         $GLOBALS['TYPO3_REQUEST'] = (new ServerRequest())
             ->withAttribute('site', $site)

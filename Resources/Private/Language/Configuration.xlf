@@ -20,6 +20,12 @@
 			<trans-unit id="site.configuration.js_path">
                 <source>JavaScript Path</source>
             </trans-unit>
+            <trans-unit id="site.configuration.skip_dev_validation">
+                <source>Skip validation in Development context</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.skip_dev_validation.description">
+                <source>Must never be used on your live website. Only possible in Development context. Can be useful for automated form testing.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
