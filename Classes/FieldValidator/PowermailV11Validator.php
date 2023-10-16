@@ -13,7 +13,7 @@ class PowermailV11Validator extends AbstractValidator
     /**
      * @param Mail $mail
      */
-    protected function isValid($mail): void
+    public function isValid($mail): void
     {
         if (!$this->isFormWithCaptchaField($mail) || $this->isCaptchaCheckToSkip()) {
             return;

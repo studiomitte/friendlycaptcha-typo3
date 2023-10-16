@@ -6,7 +6,7 @@ plugin.tx_powermail {
   }
 }
 
-[typo3.branch == "12.4"]
+[compatVersion("12.4")]
   plugin.tx_powermail.settings.setup.validators {
     981818 {
       class = StudioMitte\FriendlyCaptcha\FieldValidator\PowermailV11Validator

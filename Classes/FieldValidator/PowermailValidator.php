@@ -36,6 +36,11 @@ class PowermailValidator extends AbstractValidator
         return $result;
     }
 
+    public function isValid(mixed $mail): void
+    {
+        return;
+    }
+
     protected function isFormWithCaptchaField($mail): bool
     {
         foreach ($mail->getForm()->getPages() as $page) {
