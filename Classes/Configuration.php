@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StudioMitte\FriendlyCaptcha;
 
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -16,6 +17,7 @@ class Configuration
     protected string $puzzleUrl = '';
     protected string $verifyUrl = '';
     protected string $jsPath = '';
+    protected bool $skipDevValidation = false;
 
     public function __construct(Site $site = null)
     {
@@ -31,6 +33,7 @@ class Configuration
         $this->puzzleUrl = trim($siteConfiguration['friendlycaptcha_puzzle_url'] ?? '');
         $this->verifyUrl = trim($siteConfiguration['friendlycaptcha_verify_url'] ?? '');
         $this->jsPath = trim($siteConfiguration['friendlycaptcha_js_path'] ?? '');
+        $this->skipDevValidation = (bool)($siteConfiguration['friendlycaptcha_skip_dev_validation'] ?? false);
     }
 
     public function isEnabled(): bool
@@ -67,5 +70,10 @@ class Configuration
     public function getJsPath(): string
     {
         return $this->jsPath ?: self::DEFAULT_JS_PATH;
+    }
+
+    public function hasSkipDevValidation(): bool
+    {
+        return Environment::getContext()->isDevelopment() && $this->skipDevValidation;
     }
 }

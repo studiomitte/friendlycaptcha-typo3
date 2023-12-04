@@ -41,6 +41,13 @@ call_user_func(
                 'default' => \StudioMitte\FriendlyCaptcha\Configuration::DEFAULT_JS_PATH,
             ],
         ];
-        $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',--div--;' . $lll . 'site.configuration.tab, friendlycaptcha_site_key,friendlycaptcha_secret_key,friendlycaptcha_puzzle_url,friendlycaptcha_verify_url,friendlycaptcha_js_path,';
+        $GLOBALS['SiteConfiguration']['site']['columns']['friendlycaptcha_skip_dev_validation'] = [
+            'label' => $lll . 'site.configuration.skip_dev_validation',
+            'description' => $lll . 'site.configuration.skip_dev_validation.description',
+            'config' => [
+                'type' => 'check',
+            ],
+        ];
+        $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',--div--;' . $lll . 'site.configuration.tab, friendlycaptcha_site_key,friendlycaptcha_secret_key,friendlycaptcha_puzzle_url,friendlycaptcha_verify_url,friendlycaptcha_js_path,friendlycaptcha_skip_dev_validation,';
     }
 );
