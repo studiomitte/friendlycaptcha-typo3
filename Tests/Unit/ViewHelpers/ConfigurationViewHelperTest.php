@@ -21,9 +21,7 @@ class ConfigurationViewHelperTest extends BaseTestCase
         self::setupRequest();
 
         $renderingContext = new class () extends RenderingContext {
-            public function __construct()
-            {
-            }
+            public function __construct() {}
         };
         self::assertSame([
             'languageIsoCode' => 'en',
