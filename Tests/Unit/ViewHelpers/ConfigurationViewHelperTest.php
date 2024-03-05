@@ -30,6 +30,6 @@ class ConfigurationViewHelperTest extends BaseTestCase
             'puzzleUrl' => 'https://puzzle',
             'jsPath' => 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/widget-0.9.12.min.js',
             'enabled' => true,
-        ], ConfigurationViewHelper::renderStatic([], static fn () => '', $renderingContext));
+        ], ConfigurationViewHelper::renderStatic([], static fn() => '', $renderingContext));
     }
 }
