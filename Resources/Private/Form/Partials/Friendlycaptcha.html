@@ -9,7 +9,15 @@
             <f:then>
                 <f:asset.script defer="1" async="1" identifier="friendlycaptcha" src="{captchaConfiguration.jsPath}" />
 
-                <f:render partial="Field/Field" arguments="{element: element, doNotShowLabel: 1}" contentAs="elementContent">
+                <f:if condition="{element.label} == ''">
+                    <f:then>
+                        <f:variable name="dontShowLabel" value="1" />
+                    </f:then>
+                    <f:else>
+                        <f:variable name="dontShowLabel" value="0" />
+                    </f:else>
+                </f:if>
+                <f:render partial="Field/Field" arguments="{element: element, doNotShowLabel: dontShowLabel}" contentAs="elementContent">
                     <f:form.hidden
                         property="{element.identifier}"
                         id="{element.uniqueIdentifier}"
