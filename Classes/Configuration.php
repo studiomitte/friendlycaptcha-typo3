@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace StudioMitte\FriendlyCaptcha;
 
+use Symfony\Component\ExpressionLanguage\SyntaxError;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\ExpressionLanguage\Resolver;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -28,8 +30,16 @@ class Configuration
             return;
         }
         $siteConfiguration = $site->getConfiguration();
-        $this->siteKey = trim($siteConfiguration['friendlycaptcha_site_key'] ?? '');
-        $this->siteSecretKey = trim($siteConfiguration['friendlycaptcha_secret_key'] ?? '');
+
+        $this->siteKey = $this->resolveValueWithVariants(
+            trim($siteConfiguration['friendlycaptcha_site_key'] ?? ''),
+            $siteConfiguration['friendlycaptcha_site_key_variants'] ?? null
+        );
+        $this->siteSecretKey = $this->resolveValueWithVariants(
+            trim($siteConfiguration['friendlycaptcha_secret_key'] ?? ''),
+            $siteConfiguration['friendlycaptcha_secret_key_variants'] ?? null,
+        );
+
         $this->puzzleUrl = trim($siteConfiguration['friendlycaptcha_puzzle_url'] ?? '');
         $this->verifyUrl = trim($siteConfiguration['friendlycaptcha_verify_url'] ?? '');
         $this->jsPath = trim($siteConfiguration['friendlycaptcha_js_path'] ?? '');
@@ -75,5 +85,28 @@ class Configuration
     public function hasSkipDevValidation(): bool
     {
         return Environment::getContext()->isDevelopment() && $this->skipDevValidation;
+    }
+
+    protected function resolveValueWithVariants(string $value, ?array $variants): string
+    {
+        if (!empty($variants)) {
+            $expressionLanguageResolver = GeneralUtility::makeInstance(
+                Resolver::class,
+                'site',
+                []
+            );
+            foreach ($variants as $variant) {
+                try {
+                    if ($expressionLanguageResolver->evaluate($variant['condition'])) {
+                        $value = trim($variant['value']);
+                        break;
+                    }
+                } catch (SyntaxError $e) {
+                    // silently fail and do not evaluate
+                    // no logger here, as Site is currently cached and serialized
+                }
+            }
+        }
+        return $value;
     }
 }
