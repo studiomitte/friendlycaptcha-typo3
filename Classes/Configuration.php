@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StudioMitte\FriendlyCaptcha;
 
+use TYPO3\CMS\Core\Site\Entity\NullSite;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -24,7 +25,7 @@ class Configuration
         if ($site === null) {
             $site = $GLOBALS['TYPO3_REQUEST']->getAttribute('site');
         }
-        if ($site === null) {
+        if ($site === null || $site instanceof NullSite) {
             return;
         }
         $siteConfiguration = $site->getConfiguration();
