@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace StudioMitte\FriendlyCaptcha;
 
-use TYPO3\CMS\Core\Site\Entity\NullSite;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Site\Entity\NullSite;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
