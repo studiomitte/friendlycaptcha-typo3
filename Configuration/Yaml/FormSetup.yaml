@@ -30,7 +30,7 @@ TYPO3:
 
             Friendlycaptcha:
 
-              implementationClassName: 'TYPO3\CMS\Form\Domain\Model\FormElements\GenericFormElement'
+              implementationClassName: 'StudioMitte\FriendlyCaptcha\Form\CustomFormElement'
 
               # Headline (appears as a title in the overview and above the form)
               formEditor:
