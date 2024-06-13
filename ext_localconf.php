@@ -22,7 +22,7 @@ module.tx_form.settings.yamlConfigurations {
 }
 
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('powermail')) {
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup('@import "EXT:friendlycaptcha_official/Configuration/TypoScript/Powermail/setup.typoscript');
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup('@import "EXT:friendlycaptcha_official/Configuration/TypoScript/Powermail/setup.typoscript"');
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('@import "EXT:friendlycaptcha_official/Configuration/PageTsConfig/powermail.typoscript"');
 }
 
