@@ -24,3 +24,11 @@ A new tab **Friendly Captcha** is available which includes all configuration opt
     After finishing the configuration, you are ready to use Friendly Captcha on your site.
 
     This is described in the :ref:`using` section!
+
+
+Working with automated tests
+============================
+If you are using automated tests you might want to skip the captcha.
+This can be achieved by setting the folloowing ENV variable `FRIENDLYCAPTCHA_SKIP_HEADER_VALIDATION` to a string with minimum length of 30.
+
+Now provide the same string with with the request header `X-FriendlyCaptcha-Skip-Validation`.

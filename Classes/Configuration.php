@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace StudioMitte\FriendlyCaptcha;
 
+use Psr\Http\Message\RequestInterface;
 use TYPO3\CMS\Core\Core\Environment;
-use TYPO3\CMS\Core\Site\Entity\NullSite;
+use TYPO3\CMS\Core\Http\ServerRequest;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class Configuration
 {
@@ -25,7 +27,7 @@ class Configuration
         if ($site === null) {
             $site = $GLOBALS['TYPO3_REQUEST']->getAttribute('site');
         }
-        if ($site === null || $site instanceof NullSite) {
+        if ($site === null) {
             return;
         }
         $siteConfiguration = $site->getConfiguration();
@@ -39,7 +41,7 @@ class Configuration
 
     public function isEnabled(): bool
     {
-        return $this->siteKey !== '' && $this->siteSecretKey !== '' && $this->puzzleUrl !== '' && $this->verifyUrl !== '';
+        return $this->siteKey !== '' && $this->siteSecretKey !== '' && $this->puzzleUrl !== '' && $this->verifyUrl !== '' && !$this->hasSkipHeaderValidation();
     }
 
     public function getSiteKey(): string
@@ -76,5 +78,16 @@ class Configuration
     public function hasSkipDevValidation(): bool
     {
         return Environment::getContext()->isDevelopment() && $this->skipDevValidation;
+    }
+
+    public function hasSkipHeaderValidation(): bool
+    {
+        /** @var ServerRequest $request */
+        $request = $GLOBALS['TYPO3_REQUEST'];
+        $validationName = (string)($_ENV['FRIENDLYCAPTCHA_SKIP_HEADER_VALIDATION'] ?? '');
+        if (strlen($validationName) < 30) {
+            return false;
+        }
+        return $request && $request->hasHeader('X-FriendlyCaptcha-Skip-Validation') && in_array($validationName, $request->getHeader('X-FriendlyCaptcha-Skip-Validation'), truex);
     }
 }
