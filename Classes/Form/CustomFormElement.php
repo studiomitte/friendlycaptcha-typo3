@@ -12,6 +12,6 @@ class CustomFormElement extends GenericFormElement
 {
     public function initializeFormElement()
     {
-       $this->addValidator(GeneralUtility::makeInstance(NotEmptyValidator::class));
+        $this->addValidator(GeneralUtility::makeInstance(NotEmptyValidator::class));
     }
 }
