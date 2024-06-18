@@ -86,6 +86,6 @@ class Configuration
         if (strlen($validationName) < 30) {
             return false;
         }
-        return $request && $request->hasHeader('X-FriendlyCaptcha-Skip-Validation') && in_array($validationName, $request->getHeader('X-FriendlyCaptcha-Skip-Validation'), truex);
+        return $request && $request->hasHeader('X-FriendlyCaptcha-Skip-Validation') && in_array($validationName, $request->getHeader('X-FriendlyCaptcha-Skip-Validation'), true);
     }
 }
