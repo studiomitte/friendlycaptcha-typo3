@@ -35,6 +35,9 @@ class Api
         if ($this->configuration->hasSkipDevValidation()) {
             return true;
         }
+        if ($this->configuration->hasSkipHeaderValidation()) {
+            return true;
+        }
 
         $solution = $solution ?: $this->getSolutionFromRequest();
         if (!$solution || !$this->configuration->isEnabled()) {
