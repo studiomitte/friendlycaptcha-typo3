@@ -49,7 +49,10 @@ class PowermailV11Validator extends AbstractValidator
     {
         if (property_exists($this, 'flexForm')) {
             $confirmationActive = $this->flexForm['settings']['flexform']['main']['confirmation'] === '1';
-            return $this->getActionName() === 'create' && $confirmationActive;
+            $optinActive = $this->flexForm['settings']['flexform']['main']['optin'] === '1';
+
+            return $this->getActionName() === 'create' && $confirmationActive
+                || $this->getActionName() === 'optinConfirm' && $optinActive;
         }
         return false;
     }
