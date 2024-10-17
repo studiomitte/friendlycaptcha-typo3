@@ -30,7 +30,7 @@ class Api
         $this->configuration = new Configuration();
     }
 
-    public function verify(string $solution = ''): bool
+    public function verify(string $response = ''): bool
     {
         if ($this->configuration->hasSkipDevValidation()) {
             return true;
@@ -39,17 +39,19 @@ class Api
             return true;
         }
 
-        $solution = $solution ?: $this->getSolutionFromRequest();
-        if (!$solution || !$this->configuration->isEnabled()) {
+        $response = $response ?: $this->getResponseFromRequest();
+        if (!$response || !$this->configuration->isEnabled()) {
             return false;
         }
 
         $options = [
-            'headers' => ['Cache-Control' => 'no-cache'],
+            'headers' => [
+                'Cache-Control' => 'no-cache',
+                'X-API-Key' => $this->configuration->getSiteSecretKey(),
+            ],
             'allow_redirects' => true,
             'form_params' => [
-                'secret' => $this->configuration->getSiteSecretKey(),
-                'solution' => $solution,
+                'response' => $response,
             ],
         ];
 
@@ -86,13 +88,13 @@ class Api
         return $result->getBody()->getContents();
     }
 
-    protected function getSolutionFromRequest(): string
+    protected function getResponseFromRequest(): string
     {
         /** @var ServerRequest $request */
         $request = $GLOBALS['TYPO3_REQUEST'] ?? null;
         if (!$request) {
             return '';
         }
-        return $request->getParsedBody()['frc-captcha-solution'] ?? $request->getQueryParams()['frc-captcha-solution'] ?? '';
+        return $request->getParsedBody()['frc-captcha-response'] ?? $request->getQueryParams()['frc-captcha-response'] ?? '';
     }
 }

@@ -24,11 +24,10 @@ class ConfigurationViewHelperTest extends BaseTestCase
             public function __construct() {}
         };
         self::assertSame([
-            'languageIsoCode' => 'en',
             'siteKey' => '1234',
             'verifyUrl' => 'https://verify,https://verify2',
-            'puzzleUrl' => 'https://puzzle',
-            'jsPath' => 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/widget-0.9.12.min.js',
+            'puzzleEndpoint' => '',
+            'jsPath' => 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/sdk@0.1.8-site.compat.min.js',
             'enabled' => true,
         ], ConfigurationViewHelper::renderStatic([], static fn() => '', $renderingContext));
     }

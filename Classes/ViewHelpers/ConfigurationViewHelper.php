@@ -18,10 +18,9 @@ class ConfigurationViewHelper extends AbstractViewHelper
     {
         $configuration = new Configuration();
         return [
-            'languageIsoCode' => self::getLanguageIsoCode(),
             'siteKey' => $configuration->getSiteKey(),
             'verifyUrl' => $configuration->getVerifyUrl(),
-            'puzzleUrl' => $configuration->getPuzzleUrl(),
+            'puzzleEndpoint' => $configuration->getPuzzleEndpoint(),
             'jsPath' => $configuration->getJsPath(),
             'enabled' => $configuration->isEnabled(),
         ];
