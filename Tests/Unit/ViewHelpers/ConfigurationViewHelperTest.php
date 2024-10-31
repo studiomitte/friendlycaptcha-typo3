@@ -19,7 +19,7 @@ class ConfigurationViewHelperTest extends BaseTestCase
     {
         self::setupRequest();
         $configurationViewHelper = new ConfigurationViewHelper();
-        
+
         self::assertSame([
             'siteKey' => '1234',
             'verifyUrl' => 'https://verify,https://verify2',
