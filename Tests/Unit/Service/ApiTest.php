@@ -28,7 +28,7 @@ class ApiTest extends BaseTestCase
     {
         self::setupRequest();
         $GLOBALS['TYPO3_REQUEST'] = $GLOBALS['TYPO3_REQUEST']
-            ->withParsedBody(['frc-captcha-solution' => '1234']);
+            ->withParsedBody(['frc-captcha-response' => '1234']);
         $historyContainer = [];
         $client = $this->createClientWithHistory(
             [new Response(200, [], '{"success": true}')],
@@ -52,15 +52,15 @@ class ApiTest extends BaseTestCase
         self::setupRequest();
         $mockedApi = $this->getAccessibleMock(Api::class, null, [], '', false);
 
-        self::assertSame('', $mockedApi->_call('getSolutionFromRequest'));
+        self::assertSame('', $mockedApi->_call('getResponseFromRequest'));
 
         $GLOBALS['TYPO3_REQUEST'] = $GLOBALS['TYPO3_REQUEST']
-            ->withQueryParams(['frc-captcha-solution' => '12345']);
-        self::assertSame('12345', $mockedApi->_call('getSolutionFromRequest'));
+            ->withQueryParams(['frc-captcha-response' => '12345']);
+        self::assertSame('12345', $mockedApi->_call('getResponseFromRequest'));
 
         $GLOBALS['TYPO3_REQUEST'] = $GLOBALS['TYPO3_REQUEST']
-            ->withParsedBody(['frc-captcha-solution' => '1234']);
-        self::assertSame('1234', $mockedApi->_call('getSolutionFromRequest'));
+            ->withParsedBody(['frc-captcha-response' => '1234']);
+        self::assertSame('1234', $mockedApi->_call('getResponseFromRequest'));
     }
 
     private function createClientWithHistory(array $responses, array &$historyContainer): Client

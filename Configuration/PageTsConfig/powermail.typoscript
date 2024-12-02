@@ -1,4 +1,4 @@
 # Add FriendlyCaptcha field to Powermail
 tx_powermail.flexForm.type.addFieldOptions {
-  friendlycaptcha = FriendlyCaptcha
+  friendlycaptcha = FriendlyCaptcha V2
 }

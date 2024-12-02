@@ -17,7 +17,7 @@ What does it do?
 ================
 
 This extension integrates the service of **Friendly Captcha** into your site by using the
-official API.
+official API. This version only supports **Friendly Captcha V2**. For **V1** support, please install an earlier version of the plugin.
 
 Currently it supports the following form solutions:
 

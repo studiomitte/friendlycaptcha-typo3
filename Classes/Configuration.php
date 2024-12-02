@@ -11,11 +11,11 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class Configuration
 {
-    public const DEFAULT_JS_PATH = 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/widget-0.9.12.min.js';
+    public const DEFAULT_JS_PATH = 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/sdk@0.1.8-site.compat.min.js';
 
     protected string $siteKey = '';
     protected string $siteSecretKey = '';
-    protected string $puzzleUrl = '';
+    protected string $puzzleEndpoint = '';
     protected string $verifyUrl = '';
     protected string $jsPath = '';
     protected bool $skipDevValidation = false;
@@ -31,7 +31,7 @@ class Configuration
         $siteConfiguration = $site->getConfiguration();
         $this->siteKey = trim($siteConfiguration['friendlycaptcha_site_key'] ?? '');
         $this->siteSecretKey = trim($siteConfiguration['friendlycaptcha_secret_key'] ?? '');
-        $this->puzzleUrl = trim($siteConfiguration['friendlycaptcha_puzzle_url'] ?? '');
+        $this->puzzleEndpoint = trim($siteConfiguration['friendlycaptcha_puzzle_endpoint'] ?? '');
         $this->verifyUrl = trim($siteConfiguration['friendlycaptcha_verify_url'] ?? '');
         $this->jsPath = trim($siteConfiguration['friendlycaptcha_js_path'] ?? '');
         $this->skipDevValidation = (bool)($siteConfiguration['friendlycaptcha_skip_dev_validation'] ?? false);
@@ -39,7 +39,7 @@ class Configuration
 
     public function isEnabled(): bool
     {
-        return $this->siteKey !== '' && $this->siteSecretKey !== '' && $this->puzzleUrl !== '' && $this->verifyUrl !== '' && !$this->hasSkipHeaderValidation();
+        return $this->siteKey !== '' && $this->siteSecretKey !== '' && $this->verifyUrl !== '' && !$this->hasSkipHeaderValidation();
     }
 
     public function getSiteKey(): string
@@ -52,9 +52,9 @@ class Configuration
         return $this->siteSecretKey;
     }
 
-    public function getPuzzleUrl(): string
+    public function getPuzzleEndpoint(): string
     {
-        return $this->puzzleUrl;
+        return $this->puzzleEndpoint;
     }
 
     public function getVerifyUrl(): string
