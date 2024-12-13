@@ -15,7 +15,7 @@ class Configuration
 
     protected string $siteKey = '';
     protected string $siteSecretKey = '';
-    protected string $puzzleEndpoint = '';
+    protected bool $useEuPuzzleEndpoint = false;
     protected string $verifyUrl = '';
     protected string $jsPath = '';
     protected bool $skipDevValidation = false;
@@ -31,7 +31,7 @@ class Configuration
         $siteConfiguration = $site->getConfiguration();
         $this->siteKey = trim($siteConfiguration['friendlycaptcha_site_key'] ?? '');
         $this->siteSecretKey = trim($siteConfiguration['friendlycaptcha_secret_key'] ?? '');
-        $this->puzzleEndpoint = trim($siteConfiguration['friendlycaptcha_puzzle_endpoint'] ?? '');
+        $this->useEuPuzzleEndpoint = $siteConfiguration['friendlycaptcha_use_eu_puzzle_endpoint'];
         $this->verifyUrl = trim($siteConfiguration['friendlycaptcha_verify_url'] ?? '');
         $this->jsPath = trim($siteConfiguration['friendlycaptcha_js_path'] ?? '');
         $this->skipDevValidation = (bool)($siteConfiguration['friendlycaptcha_skip_dev_validation'] ?? false);
@@ -52,9 +52,9 @@ class Configuration
         return $this->siteSecretKey;
     }
 
-    public function getPuzzleEndpoint(): string
+    public function useEuPuzzleEndpoint(): bool
     {
-        return $this->puzzleEndpoint;
+        return $this->useEuPuzzleEndpoint;
     }
 
     public function getVerifyUrl(): string

@@ -18,7 +18,7 @@ class ConfigurationViewHelper extends AbstractViewHelper
         return [
             'siteKey' => $configuration->getSiteKey(),
             'verifyUrl' => $configuration->getVerifyUrl(),
-            'puzzleEndpoint' => $configuration->getPuzzleEndpoint(),
+            'useEuPuzzleEndpoint' => $configuration->useEuPuzzleEndpoint(),
             'jsPath' => $configuration->getJsPath(),
             'enabled' => $configuration->isEnabled(),
         ];
