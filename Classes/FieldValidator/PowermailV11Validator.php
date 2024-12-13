@@ -48,6 +48,7 @@ class PowermailV11Validator extends AbstractValidator
     protected function isCaptchaCheckToSkip(): bool
     {
         if (property_exists($this, 'flexForm')) {
+            // @TODO: flexForm null in powermail v13
             $confirmationActive = $this->flexForm['settings']['flexform']['main']['confirmation'] === '1';
             $optinActive = $this->flexForm['settings']['flexform']['main']['optin'] === '1';
 

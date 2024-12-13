@@ -12,7 +12,7 @@ class ConfigurationViewHelper extends AbstractViewHelper
 {
     use CompileWithRenderStatic;
 
-    public static function render()
+    public function render(): array
     {
         $configuration = new Configuration();
         return [
