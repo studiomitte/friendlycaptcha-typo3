@@ -22,7 +22,7 @@ class ConfigurationTest extends BaseTestCase
         $configuration = new Configuration();
         self::assertEquals('12345', $configuration->getSiteKey());
         self::assertEquals('ABCDEF', $configuration->getSiteSecretKey());
-        self::assertEquals('', $configuration->getPuzzleEndpoint());
+        self::assertFalse($configuration->useEuPuzzleEndpoint());
         self::assertEquals('https://verify,https://verify2', $configuration->getVerifyUrl());
         self::assertEquals('https://verify', $configuration->getFirstVerifyUrl());
         self::assertTrue($configuration->isEnabled());

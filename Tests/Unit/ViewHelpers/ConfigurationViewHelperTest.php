@@ -23,7 +23,7 @@ class ConfigurationViewHelperTest extends BaseTestCase
         self::assertSame([
             'siteKey' => '1234',
             'verifyUrl' => 'https://verify,https://verify2',
-            'puzzleEndpoint' => '',
+            'useEuPuzzleEndpoint' => false,
             'jsPath' => 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/sdk@0.1.8-site.compat.min.js',
             'enabled' => true,
         ], $configurationViewHelper->render());
