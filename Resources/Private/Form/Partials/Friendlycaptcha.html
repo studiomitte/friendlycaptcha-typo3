@@ -24,7 +24,7 @@
                         value="1"
                         additionalAttributes="{formvh:translateElementProperty(element: element, property: 'fluidAdditionalAttributes')}"
                     />
-                    <div class="frc-captcha" data-sitekey="{captchaConfiguration.siteKey}" {f:if(condition: '{captchaConfiguration.puzzleEndpoint}', then: 'data-api-endpoint="{captchaConfiguration.puzzleEndpoint}"')}></div>
+                    <div class="frc-captcha" data-sitekey="{captchaConfiguration.siteKey}" {f:if(condition: '{captchaConfiguration.useEuPuzzleEndpoint}', then: 'data-api-endpoint="eu"')}></div>
                 </f:render>
             </f:then>
             <f:else>

@@ -17,12 +17,10 @@ call_user_func(
                 'placeholder' => 'A16UE6NICBMVQKG1I1BFMLBD56K53D3CS0L5N00AJNBT1R41P8O7N1KFMH',
             ],
         ];
-        $GLOBALS['SiteConfiguration']['site']['columns']['friendlycaptcha_puzzle_endpoint'] = [
+        $GLOBALS['SiteConfiguration']['site']['columns']['friendlycaptcha_use_eu_puzzle_endpoint'] = [
             'label' => $lll . 'site.configuration.puzzle_endpoint',
             'config' => [
-                'type' => 'input',
-                'placeholder' => 'eu',
-                'default' => '',
+                'type' => 'check',
             ],
         ];
         $GLOBALS['SiteConfiguration']['site']['columns']['friendlycaptcha_verify_url'] = [
@@ -48,6 +46,6 @@ call_user_func(
                 'type' => 'check',
             ],
         ];
-        $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',--div--;' . $lll . 'site.configuration.tab, friendlycaptcha_site_key,friendlycaptcha_secret_key,friendlycaptcha_puzzle_endpoint,friendlycaptcha_verify_url,friendlycaptcha_js_path,friendlycaptcha_skip_dev_validation,';
+        $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] .= ',--div--;' . $lll . 'site.configuration.tab, friendlycaptcha_site_key,friendlycaptcha_secret_key,friendlycaptcha_use_eu_puzzle_endpoint,friendlycaptcha_verify_url,friendlycaptcha_js_path,friendlycaptcha_skip_dev_validation,';
     }
 );

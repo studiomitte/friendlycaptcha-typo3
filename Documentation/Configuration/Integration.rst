@@ -26,6 +26,9 @@ A new tab **Friendly Captcha** is available which includes all configuration opt
     This is described in the :ref:`using` section!
 
 
+By default, the global endpoint `https://global.frcapi.com/api/v2/captcha/siteverify` is used. 
+If you prefer to use the EU endpoint, enter `https://eu.frcapi.com/api/v2/captcha/siteverify` in `Verify URL` field and ensure that the `Use EU Puzzle Endpoint` option is checked.
+
 Working with automated tests
 ============================
 If you are using automated tests you might want to skip the captcha.
