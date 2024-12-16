@@ -45,6 +45,7 @@ TYPO3 Extension friendlycaptcha_official
     Installation/Index
     Configuration/Index
     Using/Index
+    V2_Migration/Index
 
 ..  Meta Menu
 

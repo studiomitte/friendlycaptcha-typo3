@@ -34,7 +34,7 @@ TYPO3:
 
               # Headline (appears as a title in the overview and above the form)
               formEditor:
-                label: 'Friendly Captcha'
+                label: 'Friendly Captcha V2'
                 group: custom
                 groupSorting: 1010
 

@@ -14,8 +14,8 @@
             <trans-unit id="site.configuration.verify_url">
                 <source>Verify URL</source>
             </trans-unit>
-			<trans-unit id="site.configuration.puzzle_url">
-                <source>Puzzle URL</source>
+			<trans-unit id="site.configuration.puzzle_endpoint">
+                <source>Use EU Puzzle Endpoint</source>
             </trans-unit>
 			<trans-unit id="site.configuration.js_path">
                 <source>JavaScript Path</source>

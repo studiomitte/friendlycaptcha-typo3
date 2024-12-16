@@ -24,7 +24,7 @@ The puzzle needs to be integrated into the form. This can be done like this in y
         <f:if condition="{captchaConfiguration.enabled}">
             <f:then>
                 <f:asset.script defer="1" async="1" identifier="friendlycaptcha" src="{captchaConfiguration.jsPath}" />
-                <div class="frc-captcha" data-sitekey="{captchaConfiguration.siteKey}" data-lang="{captchaConfiguration.languageIsoCode}" data-puzzle-endpoint="{captchaConfiguration.puzzleUrl}"></div>
+                <div class="frc-captcha" data-sitekey="{captchaConfiguration.siteKey}" {f:if(condition: '{captchaConfiguration.useEuPuzzleEndpoint}', then: 'data-api-endpoint="eu"')}></div>
             </f:then>
             <f:else>
                 <p>{f:translate(key:'LLL:EXT:friendlycaptcha_official/Resources/Private/Language/locallang.xlf:configuration_missing')}</p>
