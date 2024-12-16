@@ -15,15 +15,3 @@ plugin.tx_powermail {
         }
     }
 }
-
-[compatVersion("12.4")]
-    plugin.tx_powermail.settings.setup.validators {
-        981818 {
-            class = StudioMitte\FriendlyCaptcha\FieldValidator\PowermailV11Validator
-            config {
-                # Until https://github.com/in2code-de/powermail/pull/941 is merged & released
-                dummy = 1
-            }
-        }
-    }
-[global]
