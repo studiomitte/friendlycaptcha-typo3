@@ -31,7 +31,7 @@ class Configuration
         $siteConfiguration = $site->getConfiguration();
         $this->siteKey = trim($siteConfiguration['friendlycaptcha_site_key'] ?? '');
         $this->siteSecretKey = trim($siteConfiguration['friendlycaptcha_secret_key'] ?? '');
-        $this->useEuPuzzleEndpoint = $siteConfiguration['friendlycaptcha_use_eu_puzzle_endpoint'] ?? false;
+        $this->useEuPuzzleEndpoint = (bool)($siteConfiguration['friendlycaptcha_use_eu_puzzle_endpoint'] ?? false);
         $this->verifyUrl = trim($siteConfiguration['friendlycaptcha_verify_url'] ?? '');
         $this->jsPath = trim($siteConfiguration['friendlycaptcha_js_path'] ?? '');
         $this->skipDevValidation = (bool)($siteConfiguration['friendlycaptcha_skip_dev_validation'] ?? false);
