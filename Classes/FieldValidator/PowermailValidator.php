@@ -6,6 +6,7 @@ namespace StudioMitte\FriendlyCaptcha\FieldValidator;
 
 use In2code\Powermail\Domain\Validator\AbstractValidator;
 use StudioMitte\FriendlyCaptcha\Service\Api;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class PowermailValidator extends AbstractValidator
@@ -48,13 +49,18 @@ class PowermailValidator extends AbstractValidator
     protected function isCaptchaCheckToSkip(): bool
     {
         if (property_exists($this, 'flexForm')) {
-            // @TODO: flexForm null in powermail v13
+            $action = $this->getActionName();
             $confirmationActive = $this->flexForm['settings']['flexform']['main']['confirmation'] === '1';
             $optinActive = $this->flexForm['settings']['flexform']['main']['optin'] === '1';
+            if ($action === 'create' && $confirmationActive || $action === 'checkCreate' && $confirmationActive) {
+                return true;
+            }
 
-            return $this->getActionName() === 'create' && $confirmationActive
-                || $this->getActionName() === 'optinConfirm' && $optinActive;
+            if ($action === 'optinConfirm' && $optinActive) {
+                return true;
+            }
         }
+
         return false;
     }
 
@@ -63,7 +69,9 @@ class PowermailValidator extends AbstractValidator
      */
     protected function getActionName(): string
     {
-        $pluginVariables = GeneralUtility::_GPmerged('tx_powermail_pi1');
+        $request = $GLOBALS['TYPO3_REQUEST'];
+        $pluginVariables = $request->getQueryParams()['tx_powermail_pi1'];
+        ArrayUtility::mergeRecursiveWithOverrule($pluginVariables, $request->getParsedBody()['tx_powermail_pi1']);
         return $pluginVariables['action'];
     }
 }
