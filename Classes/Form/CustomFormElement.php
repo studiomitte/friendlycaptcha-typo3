@@ -10,7 +10,7 @@ use TYPO3\CMS\Form\Domain\Model\FormElements\GenericFormElement;
 
 class CustomFormElement extends GenericFormElement
 {
-    public function initializeFormElement()
+    public function initializeFormElement(): void
     {
         $this->addValidator(GeneralUtility::makeInstance(NotEmptyValidator::class));
     }

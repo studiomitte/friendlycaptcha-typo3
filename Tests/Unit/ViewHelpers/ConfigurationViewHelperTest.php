@@ -15,7 +15,7 @@ class ConfigurationViewHelperTest extends BaseTestCase
     /**
      * @test
      */
-    public function viewHelperReturnsProperConfiguration()
+    public function viewHelperReturnsProperConfiguration(): void
     {
         self::setupRequest();
         $configurationViewHelper = new ConfigurationViewHelper();
