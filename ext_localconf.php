@@ -1,13 +1,5 @@
 <?php
 
-/** @var \TYPO3\CMS\Core\Imaging\IconRegistry $iconRegistry */
-$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-$iconRegistry->registerIcon(
-    'Friendlycaptcha-icon',
-    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-    ['source' => 'EXT:friendlycaptcha_official/Resources/Public/Icons/Captcha-icon.svg']
-);
-
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('form')) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup('
 # Settings for Frontend
