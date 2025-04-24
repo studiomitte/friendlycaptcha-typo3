@@ -9,3 +9,7 @@ services:
 
   StudioMitte\FriendlyCaptcha\Service\Api:
     public: true
+
+  StudioMitte\FriendlyCaptcha\ConfigurationInterface:
+    alias: StudioMitte\FriendlyCaptcha\Configuration
+    public: true
