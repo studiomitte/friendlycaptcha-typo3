@@ -9,7 +9,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Log\LoggerInterface;
-use StudioMitte\FriendlyCaptcha\Configuration;
+use StudioMitte\FriendlyCaptcha\ConfigurationInterface;
 use TYPO3\CMS\Core\Http\ServerRequest;
 
 class Api
@@ -17,17 +17,18 @@ class Api
     protected RequestFactoryInterface $factory;
     protected ClientInterface $client;
     protected LoggerInterface $logger;
-    protected Configuration $configuration;
+    protected ConfigurationInterface $configuration;
 
     public function __construct(
         RequestFactoryInterface $factory,
         ClientInterface $client,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        ConfigurationInterface $configuration
     ) {
         $this->factory = $factory;
         $this->client = $client;
         $this->logger = $logger;
-        $this->configuration = new Configuration();
+        $this->configuration = $configuration;
     }
 
     public function verify(string $response = ''): bool
