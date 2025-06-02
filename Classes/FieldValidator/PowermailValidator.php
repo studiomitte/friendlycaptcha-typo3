@@ -6,6 +6,7 @@ namespace StudioMitte\FriendlyCaptcha\FieldValidator;
 
 use In2code\Powermail\Domain\Validator\AbstractValidator;
 use StudioMitte\FriendlyCaptcha\Service\Api;
+use TYPO3\CMS\Core\Http\ServerRequest;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -69,9 +70,17 @@ class PowermailValidator extends AbstractValidator
      */
     protected function getActionName(): string
     {
+        /** @var ServerRequest $request */
         $request = $GLOBALS['TYPO3_REQUEST'];
-        $pluginVariables = $request->getQueryParams()['tx_powermail_pi1'];
-        ArrayUtility::mergeRecursiveWithOverrule($pluginVariables, $request->getParsedBody()['tx_powermail_pi1']);
+        $pluginVariables = $request->getQueryParams()['tx_powermail_pi1'] ?? [];
+
+        $requestBody = $request->getParsedBody();
+        $postVariables = [];
+        if (is_array($requestBody) && isset($requestBody['tx_powermail_pi1'])) {
+            $postVariables = $requestBody['tx_powermail_pi1'];
+        }
+
+        ArrayUtility::mergeRecursiveWithOverrule($pluginVariables, $postVariables);
         return $pluginVariables['action'];
     }
 }
