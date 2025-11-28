@@ -20,7 +20,7 @@ class Configuration
     protected string $jsPath = '';
     protected bool $skipDevValidation = false;
 
-    public function __construct(Site $site = null)
+    public function __construct(?Site $site = null)
     {
         if ($site === null) {
             $site = $GLOBALS['TYPO3_REQUEST']->getAttribute('site');
