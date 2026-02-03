@@ -5,7 +5,7 @@
     <f:variable name="captchaConfiguration" value="{friendlycaptcha:configuration()}" />
     <f:if condition="{captchaConfiguration.enabled}">
         <f:then>
-            <f:asset.script defer="1" async="1" identifier="friendlycaptcha" src="{captchaConfiguration.jsPath}" />
+            <f:asset.script defer="1" async="1" identifier="friendlycaptcha" src="{captchaConfiguration.jsPath}" useNonce="true" />
             <div class="frc-captcha" data-sitekey="{captchaConfiguration.siteKey}" {f:if(condition: '{captchaConfiguration.useEuPuzzleEndpoint}', then: 'data-api-endpoint="eu"')}></div>
         </f:then>
         <f:else>
