@@ -14,7 +14,8 @@
 		"typo3/coding-standards": "^0.5.3",
 		"friendsofphp/php-cs-fixer": "^3.93",
 		"webmozart/assert": "^1.11.0",
-		"typo3/testing-framework": "^8.2"
+		"typo3/testing-framework": "^8.2",
+		"in2code/powermail": "^12 || ^13"
 	},
 	"suggest": {
 		"in2code/powermail": "Support for EXT:powermail",
