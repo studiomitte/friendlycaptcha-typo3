@@ -26,7 +26,7 @@ Supported form extensions:
 composer require studiomitte/friendlycaptcha
 ```
 
-Checkout the full documentation for all details.
+Checkout the full documentation [Using Friendly Captcha](https://docs.typo3.org/permalink/somemanual:using) for all details.
 
 
 ## Credits
