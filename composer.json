@@ -12,7 +12,7 @@
 		"typo3/cms-form": "^12.4.5 || ^13.4",
 		"phpunit/phpunit": "^10",
 		"typo3/coding-standards": "^0.5.3",
-		"friendsofphp/php-cs-fixer": "^3.51.0",
+		"friendsofphp/php-cs-fixer": "^3.93",
 		"webmozart/assert": "^1.11.0",
 		"typo3/testing-framework": "^8.2"
 	},
