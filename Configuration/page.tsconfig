@@ -1,0 +1,3 @@
+[isFriendlyLoaded('powermail')]
+  @import 'EXT:friendlycaptcha_official/Configuration/PageTsConfig/powermail.typoscript'
+[END]
