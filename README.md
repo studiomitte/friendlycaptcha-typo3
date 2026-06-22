@@ -14,6 +14,7 @@ Supported TYPO3 versions:
 
 - 12.4 LTS
 - 13.4 LTS
+- 14.3 LTS
 
 Supported form extensions:
 
