@@ -21,7 +21,8 @@ class TypoScriptFunctionsProvider implements ExpressionFunctionProviderInterface
             'isFriendlyLoaded',
             static fn() => null, // Not implemented, we only use the evaluator
             static function ($arguments, $extKey) {
-            return ExtensionManagementUtility::isLoaded((string )$extKey);
-        });
+                return ExtensionManagementUtility::isLoaded((string)$extKey);
+            }
+        );
     }
 }

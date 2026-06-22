@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StudioMitte\FriendlyCaptcha\Tests\Unit\ViewHelpers;
 
+use PHPUnit\Framework\Attributes\Test;
 use StudioMitte\FriendlyCaptcha\Tests\RequestTrait;
 use StudioMitte\FriendlyCaptcha\ViewHelpers\ConfigurationViewHelper;
 use TYPO3\TestingFramework\Core\BaseTestCase;
@@ -12,9 +13,7 @@ class ConfigurationViewHelperTest extends BaseTestCase
 {
     use RequestTrait;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function viewHelperReturnsProperConfiguration(): void
     {
         self::setupRequest();

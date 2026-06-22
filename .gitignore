@@ -1,7 +1,10 @@
 /.Build
 /composer.lock
+/composer.json.testing
+/packages/
 /var
 .php-cs-fixer.cache
 /Build/testing-docker/.env
 /Documentation-GENERATED-temp/
 /.DS_Store
+.cache

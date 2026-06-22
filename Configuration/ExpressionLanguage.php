@@ -2,6 +2,6 @@
 
 return [
     'typoscript' => [
-        \StudioMitte\FriendlyCaptcha\ExpressionLanguage\TypoScriptConditionProvider::class
-    ]
+        \StudioMitte\FriendlyCaptcha\ExpressionLanguage\TypoScriptConditionProvider::class,
+    ],
 ];
