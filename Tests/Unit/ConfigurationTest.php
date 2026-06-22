@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StudioMitte\FriendlyCaptcha\Tests\Unit;
 
+use PHPUnit\Framework\Attributes\Test;
 use StudioMitte\FriendlyCaptcha\Configuration;
 use StudioMitte\FriendlyCaptcha\Tests\RequestTrait;
 use TYPO3\TestingFramework\Core\BaseTestCase;
@@ -12,9 +13,7 @@ class ConfigurationTest extends BaseTestCase
 {
     use RequestTrait;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function configurationIsBuiltCorrectly(): void
     {
         self::setupRequest('12345', 'ABCDEF');
@@ -28,9 +27,7 @@ class ConfigurationTest extends BaseTestCase
         self::assertTrue($configuration->isEnabled());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function configurationIsNotEnabledWithMissingValue(): void
     {
         self::setupRequest('12345', '');

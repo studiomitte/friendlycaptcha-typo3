@@ -8,6 +8,7 @@ use In2code\Powermail\Domain\Model\Field;
 use In2code\Powermail\Domain\Model\Form;
 use In2code\Powermail\Domain\Model\Mail;
 use In2code\Powermail\Domain\Model\Page;
+use PHPUnit\Framework\Attributes\Test;
 use StudioMitte\FriendlyCaptcha\FieldValidator\PowermailValidator;
 use StudioMitte\FriendlyCaptcha\Service\Api;
 use StudioMitte\FriendlyCaptcha\Tests\RequestTrait;
@@ -19,9 +20,15 @@ class PowermailValidatorTest extends BaseTestCase
 {
     use RequestTrait;
 
-    /**
-     * @test
-     */
+    protected function setUp(): void
+    {
+        if (!\Composer\InstalledVersions::isInstalled('in2code/powermail')) {
+            self::markTestSkipped('in2code/powermail is not installed.');
+        }
+        parent::setUp();
+    }
+
+    #[Test]
     public function validateDoesNotAddErrorIfVerified(): void
     {
         self::setupRequest();
@@ -42,9 +49,7 @@ class PowermailValidatorTest extends BaseTestCase
         $mockedValidator->_call('isValid', $mockedMail);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function validateAddsErrorIfNotVerified(): void
     {
         self::setupRequest();
@@ -68,9 +73,7 @@ class PowermailValidatorTest extends BaseTestCase
         $mockedValidator->_call('isValid', $mockedMail);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function validateSkipsCheckIfNoFormWithCaptchaField(): void
     {
         self::setupRequest();

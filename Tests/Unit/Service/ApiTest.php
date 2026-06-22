@@ -9,6 +9,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\Attributes\Test;
 use Psr\Log\NullLogger;
 use StudioMitte\FriendlyCaptcha\Service\Api;
 use StudioMitte\FriendlyCaptcha\Tests\RequestTrait;
@@ -21,9 +22,7 @@ class ApiTest extends BaseTestCase
 {
     use RequestTrait;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function verifyUrlIsCalledWithProperData(): void
     {
         self::setupRequest();
@@ -44,9 +43,7 @@ class ApiTest extends BaseTestCase
         self::assertTrue($api->verify());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function solutionIsRetrieved(): void
     {
         self::setupRequest();

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StudioMitte\FriendlyCaptcha\Tests\Unit\FieldValidator;
 
+use PHPUnit\Framework\Attributes\Test;
 use StudioMitte\FriendlyCaptcha\FieldValidator\FormValidator;
 use StudioMitte\FriendlyCaptcha\Service\Api;
 use StudioMitte\FriendlyCaptcha\Tests\RequestTrait;
@@ -14,9 +15,7 @@ class FormValidatorTest extends BaseTestCase
 {
     use RequestTrait;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function validateDoesNotAddErrorIfVerified(): void
     {
         self::setupRequest();
@@ -31,9 +30,7 @@ class FormValidatorTest extends BaseTestCase
         $mockedValidator->_call('isValid', 'validSolution');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function validateAddsErrorIfNotVerified(): void
     {
         self::setupRequest();
